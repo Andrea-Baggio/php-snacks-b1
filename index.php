@@ -22,11 +22,17 @@
     $userEmail = $_GET['email'];
     $userAge = $_GET['age'];
 
-    if (strlen($userName) > 3) {
+    if (strlen($userName) > 3 && is_numeric ($userAge)) {
         print_r('corretto'); 
     } else {
         print_r('errato'); 
     }
+
+    // if () {
+    //     print_r('corretto'); 
+    // } else {
+    //     print_r('errato'); 
+    // }
     ?>
     
     <!-- Sanck 2 -->
