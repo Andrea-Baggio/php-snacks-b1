@@ -13,26 +13,20 @@
     ## Snack 4
     Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta -->
 
-
-
     <?php    
     ## Snack 2
     // Passare come parametri GET name, mail e age e verificare (cercando i metodi che non conosciamo nella documentazione) che name sia più lungo di 3 caratteri, che mail contenga un punto e una chiocciola e che age sia un numero. Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato” 
     $userName = $_GET['firstName'];
     $userEmail = $_GET['email'];
     $userAge = $_GET['age'];
-
-    if (strlen($userName) > 3 && is_numeric ($userAge)) {
-        print_r('corretto'); 
+    
+    if (strlen($userName) > 3 && is_numeric ($userAge) && strpos($userEmail, '@') && strpos($userEmail, '.')) {
+        $message = 'Accesso riuscito'; 
     } else {
-        print_r('errato'); 
+        $message ='Accesso negato'; 
     }
 
-    // if () {
-    //     print_r('corretto'); 
-    // } else {
-    //     print_r('errato'); 
-    // }
+
     ?>
     
     <!-- Sanck 2 -->
@@ -50,6 +44,7 @@
         </label>
 
         <button>Convalida dei dati</button>
+        <div> <?php echo $message ?> </div>
     </form>
 
 </body>
