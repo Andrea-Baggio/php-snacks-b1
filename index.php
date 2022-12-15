@@ -7,11 +7,45 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- ## Snack 1
-    Creiamo un array contenente le partite di basket di un’ipotetica tappa del calendario. Ogni array avrà una squadra di casa e una squadra ospite, punti fatti dalla squadra di casa e punti fatti dalla squadra ospite. Stampiamo a schermo tutte le partite con questo schema.
-    Olimpia Milano - Cantù | 55-60 -->
+    <?php   
+    ## Snack 1
+    $arrMatch = [
+        [
+            'host' => [
+            'team' => 'Milano',
+            'score' => 99,
+            ],
 
-    <?php    
+            'guest' => [
+            'team' => 'Varese',
+            'score' => 80,
+            ],
+        ],
+        [
+            'host' => [
+            'team' => 'Napoli',
+            'score' => 100,
+            ],
+
+            'guest' => [
+            'team' => 'Torino',
+            'score' => 101,
+            ],
+        ],
+        [
+            'host' => [
+            'team' => 'Vicenza',
+            'score' => 40,
+            ],
+
+            'guest' => [
+            'team' => 'Predappio',
+            'score' => 199,
+            ],
+        ],
+    ];
+
+    ## Snack 2 
     $userName = $_GET['firstName'];
     $userEmail = $_GET['email'];
     $userAge = $_GET['age'];
@@ -22,9 +56,7 @@
         $message ='Accesso negato'; 
     }
 
-
      ## Snack 4
-    // Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta
     $arrNumRandom = [];
     for ($i=0; $i < 15; $i++) { 
         $numbers = rand(0, 99);
@@ -32,7 +64,20 @@
     }
     ?>
     
-    <!-- Sanck 2 -->
+    <h1>Snack 1</h1>
+    <ul>
+        <?php 
+        for ($i=0; $i < count($arrMatch); $i++) { 
+            $match = $arrMatch[$i];
+            echo "<li>"
+                    . $match['host']['team'] . ' - ' . 
+                    $match['guest']['team'] . ' | ' . 
+                    $match['host']['score'] . '-' . 
+                    $match['guest']['score'];
+                "</li>";
+        } ?>
+    </ul>
+
     <h1>Sanck 2</h1>
     <form method="get" action="">
         <label for="firstName"> Nome
