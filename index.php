@@ -39,16 +39,16 @@
             ],
 
             'guest' => [
-            'team' => 'Predappio',
+            'team' => 'Predappio Eagles',
             'score' => 199,
             ],
         ],
     ];
 
     ## Snack 2 
-    $userName = $_GET['firstName'];
-    $userEmail = $_GET['email'];
-    $userAge = $_GET['age'];
+    $userName = isset ($_GET['firstName']) ? $_GET['firstName'] : '';
+    $userEmail = isset ($_GET['email']) ? $_GET['email'] : '';
+    $userAge = isset ($_GET['age']) ?? ''; #forma abbreviata
     
     if (strlen($userName) > 3 && is_numeric ($userAge) && strpos($userEmail, '@') && strpos($userEmail, '.')) {
         $message = 'Accesso riuscito'; 
@@ -69,12 +69,12 @@
         <?php 
         for ($i=0; $i < count($arrMatch); $i++) { 
             $match = $arrMatch[$i];
-            echo "<li>"
-                    . $match['host']['team'] . ' - ' . 
-                    $match['guest']['team'] . ' | ' . 
-                    $match['host']['score'] . '-' . 
-                    $match['guest']['score'];
-                "</li>";
+            echo "<li>
+                    {$match['host']['team']} -  
+                    {$match['guest']['team']} |  
+                    {$match['host']['score']} - 
+                    {$match['guest']['score']}
+                </li>";
         } ?>
     </ul>
 
