@@ -48,7 +48,7 @@
     ## Snack 2 
     $userName = isset ($_GET['firstName']) ? $_GET['firstName'] : '';
     $userEmail = isset ($_GET['email']) ? $_GET['email'] : '';
-    $userAge = isset ($_GET['age']) ?? ''; #forma abbreviata
+    $userAge = isset ($_GET['age']) ? $_GET['age'] : ''; 
     
     if (strlen($userName) > 3 && is_numeric ($userAge) && strpos($userEmail, '@') && strpos($userEmail, '.')) {
         $message = 'Accesso riuscito'; 
@@ -58,10 +58,13 @@
 
      ## Snack 4
     $arrNumRandom = [];
-    for ($i=0; $i < 15; $i++) { 
-        $numbers = rand(0, 99);
-        array_push($arrNumRandom, $numbers);
+    while (count($arrNumRandom) < 15) {
+        $numbers = rand(10, 99);
+        if (!in_array($numbers, $arrNumRandom)) {
+            $arrNumRandom[] = $numbers;
+        }
     }
+
     ?>
     
     <h1>Snack 1</h1>
